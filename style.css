@@ -180,6 +180,10 @@ body {
     .productGrid { 
         grid-template-columns: repeat(2,1fr);   
     }
+
+    .contactForm a {
+        margin: 0;
+    }
 } 
   
 /* Extra small devices (phones, 600px and down) */
