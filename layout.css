@@ -12,15 +12,25 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
 /* Header */
     .head_bar {
         text-align: center;
-        padding: 20px 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
+        .head_bar {
+            padding: 40px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: padding 0.5s, background 0.25s;
+        }
+        .logo_a {
+            width: 75px;
+            height: 75px;
+        }
         .logo {
             fill: #000;
             width: 75px;
             height: 75px;
+        }
+        .logo:hover {
+            fill: #46397B;
         }
         .nav_bar {
             display: flex;
@@ -34,10 +44,25 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
                 color: #000;
                 text-decoration: none;
                 font-weight: bold; 
-                margin: 0 10px;
+                border: 3px solid transparent;
             }
                 .nav_bar a:hover {
-                    text-decoration: underline;
+                    color: #46397B;
+                    border-bottom: 3px solid #46397B;
+                }
+                .nav_bar a:first-of-type{
+                    margin: 0 10px 0 0;
+                }
+                .nav_bar a + a {
+                    margin: 0 10px 0 10px;
+                }
+                .nav_bar a:last-of-type{
+                    margin: 0 0 0 10px;
+                }
+
+                .nav_bar a.icon_link {
+                    display: flex;
+                    padding: 5px 0;
                 }
 
 
@@ -58,36 +83,28 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
         font-size: 40px;
     }
 
-    .hero_outer {
-    }
-        .hero_outer > .hero {
-            aspect-ratio: 10/16;
-            background: #FFFFFF;
-            box-shadow: 10px 10px 0px #46397B;
-            border-radius: 2px 80px 2px 2px;
-        }
-
     .product_grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 30px;
-        margin: 30px 0px;
+        margin: 0px 0px 30px 0px;
     }
         .product_grid > .product {
             aspect-ratio: 1/1;
             background: #FFFFFF;
             box-shadow: 10px 10px 0px #46397B;
+            border: 1px solid #000;
             border-radius: 2px 50px 2px 2px;
+            transition: box-shadow 0.25s;
         }
+            .product_grid > .product:hover {
+                box-shadow: 0px 0px 0px #46397B;
+            }
             .product_grid > .product > img {
                 display: block;
                 width: 100%;
                 border-radius: inherit;
             }
-        .journal_grid > .topLeft , .product_grid > .topLeft {border-radius: 50px 2px 2px 2px;}
-        .journal_grid > .topRight ,.product_grid > .topRight {border-radius: 2px 50px 2px 2px;}
-        .journal_grid > .bottomLeft ,.product_grid > .bottomLeft {border-radius: 2px 2px 2px 50px;}
-        .journal_grid > .bottomRight ,.product_grid > .bottomRight {border-radius: 2px 2px 50px 2px;}
 
         .actionBtn {
             display: inline-block;   
@@ -98,7 +115,12 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
             text-decoration: none;
             color: #000;
             font-size: 20px;
+            transition: box-shadow 0.25s;
+            border: 1px solid #000;
         }
+            .actionBtn:hover {
+                box-shadow: 0px 0px 0px #FFFFFF;
+            }
 
         .seperator {
             border: 2px solid #000000;
@@ -116,19 +138,33 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
             .journal_grid > .journal_entry {
                 background: #FFFFFF;
                 box-shadow: 10px 10px 0px #46397B;
-                border-radius: 2px 50px 2px 2px;
                 display: flex;
                 flex-direction: row;
                 padding: 20px;
-                height: 120px;
-                align-items: center;   
+                height: 85px;
+                align-items: center; 
+                transition: box-shadow 0.25s;  
+                border: 1px solid #000;
+                text-decoration: none;
+                color: #000;
             }
+            .journal_grid > .journal_entry:hover{
+                box-shadow: 0px 0px 0px #46397B;
+            }
+
                 .journal_entry > .title {
                     flex: auto;
+                    font-weight: bold;
                 }
                 .journal_entry > .timestamp {
-
+                    
                 }
+
+        .journal_grid > .topLeft , .product_grid > .topLeft {border-radius: 50px 2px 2px 2px;}
+        .journal_grid > .topRight ,.product_grid > .topRight {border-radius: 2px 50px 2px 2px;}
+        .journal_grid > .bottomLeft ,.product_grid > .bottomLeft {border-radius: 2px 2px 2px 50px;}
+        .journal_grid > .bottomRight ,.product_grid > .bottomRight {border-radius: 2px 2px 50px 2px;}
+
 
     .about_outer {
         display: grid;
@@ -148,9 +184,15 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
             grid-area: img;
             background: #FFFFFF;
             box-shadow: 10px 10px 0px #46397B;
+            border: 1px solid #000;
             border-radius: 2px 50px 2px 2px;
         }
-
+            .about_outer > .about_img > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: inherit;
+            }       
         footer {
             text-align: center;
             padding: 30px 0;
@@ -161,9 +203,11 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
     .outer {
         margin:0 75px;
     }
-    .head_bar {
-        flex-direction: row;
-    }
+    
+        .head_bar {
+            flex-direction: row;
+            padding: 70px 0px;
+        }
         .nav_bar {
             flex: auto;
             justify-content: right;
@@ -173,11 +217,11 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
     }
-    .hero_outer > .hero {
-        min-height: 700px;
-        aspect-ratio: unset;
+  
+    .journal_grid > .journal_entry { 
+        height: 120px;
     }
-    
+
     .rightFloat {
         justify-content: right;
         margin-bottom: 30px;
@@ -207,6 +251,11 @@ body {font-family: sahitya;margin: 0px; padding: 0px; background: url('assets/ti
 @media (min-width: 900px) {
     .outer {
         margin:0 140px;
+    }
+
+    .logo_a {
+        width: 100px;
+        height: 100px;
     }
     .logo {
         width: 100px;
